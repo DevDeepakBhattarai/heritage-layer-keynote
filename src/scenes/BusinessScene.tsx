@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import details from "../assets/heritage-details.webp";
 import { Reveal, arrive, useCountUp } from "../components/motion";
 
-const categories = ["Local experiences and guided tours", "Restaurants and activities", "Accommodation and transport", "Attraction tickets"];
+const categories = ["Hotels · Booking.com · Tripadvisor", "Taxi bookings · Pathao · inDrive", "Restaurants & cafés", "Tours & attraction tickets"];
 
 export function BusinessScene({ beat }: { beat: number }) {
   const transaction = beat >= 3;
