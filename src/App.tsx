@@ -9,6 +9,8 @@ type Overlay = "help" | "overview" | null;
 
 const STAGE_WIDTH = 1920;
 const STAGE_HEIGHT = 1080;
+const CLICK_MOVE_TOLERANCE_PX = 6;
+const CLICK_HOLD_THRESHOLD_MS = 250;
 
 function readLocation(): Location {
   const params = new URLSearchParams(window.location.search);
@@ -50,6 +52,8 @@ export function App() {
   const locationRef = useRef<Location>(initialLocation);
   const deckRef = useRef<HTMLElement | null>(null);
   const viewportRef = useRef<HTMLElement | null>(null);
+  const pointerGestureRef = useRef<{ pointerId: number; x: number; y: number; startedAt: number } | null>(null);
+  const suppressNextClickRef = useRef(false);
   const reviewMode = new URLSearchParams(window.location.search).get("review") === "1";
 
   useStageScale(viewportRef);
@@ -172,7 +176,45 @@ export function App() {
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
+  const onStagePointerDown = (event: React.PointerEvent<HTMLElement>) => {
+    if (event.button !== 0) return;
+    // A fresh press starts a fresh gesture, so stale suppression can never eat a later click.
+    suppressNextClickRef.current = false;
+    pointerGestureRef.current = {
+      pointerId: event.pointerId,
+      x: event.clientX,
+      y: event.clientY,
+      startedAt: performance.now(),
+    };
+  };
+
+  const onStagePointerUp = (event: React.PointerEvent<HTMLElement>) => {
+    const gesture = pointerGestureRef.current;
+    if (!gesture || gesture.pointerId !== event.pointerId) return;
+
+    const moved = Math.hypot(event.clientX - gesture.x, event.clientY - gesture.y) > CLICK_MOVE_TOLERANCE_PX;
+    const held = performance.now() - gesture.startedAt >= CLICK_HOLD_THRESHOLD_MS;
+    const selection = window.getSelection();
+    const selectedText = Boolean(selection && !selection.isCollapsed);
+
+    suppressNextClickRef.current = moved || held || selectedText;
+    pointerGestureRef.current = null;
+  };
+
+  const onStagePointerCancel = () => {
+    pointerGestureRef.current = null;
+    suppressNextClickRef.current = true;
+  };
+
   const onStageClick = (event: React.MouseEvent<HTMLElement>) => {
+    if (suppressNextClickRef.current) {
+      suppressNextClickRef.current = false;
+      return;
+    }
+
+    const selection = window.getSelection();
+    if (selection && !selection.isCollapsed) return;
+
     const target = event.target as HTMLElement;
     if (target.closest("button, a, video, input, textarea, select, [data-no-advance]")) return;
     forward();
@@ -185,6 +227,9 @@ export function App() {
           <section
             ref={deckRef}
             className="deck"
+            onPointerDown={onStagePointerDown}
+            onPointerUp={onStagePointerUp}
+            onPointerCancel={onStagePointerCancel}
             onClick={onStageClick}
             aria-live="polite"
             aria-hidden={overlay !== null ? true : undefined}

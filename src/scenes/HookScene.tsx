@@ -34,9 +34,7 @@ export function HookScene({ beat }: { beat: number }) {
 
       <Reveal when={branded} className="hook-brand" y={0} duration={0.9} delay={0.35}>
         <motion.h2 className="hook-wordmark" layout transition={arrive(0, 0.8)}>
-          <span className="faint">[</span>
-          {PRODUCT_NAME.replace(/^\[|\]$/g, "")}
-          <span className="faint">]</span>
+          {PRODUCT_NAME}
         </motion.h2>
         <Reveal when={beat >= 3} className="hook-taglines" y={20}>
           {taglines.map((line, index) => (

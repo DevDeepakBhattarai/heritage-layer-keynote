@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import dusk from "../assets/patan-dusk.webp";
-import { Reveal, arrive, easeOut, useTypewriter } from "../components/motion";
+import { Reveal, arrive, easeOut } from "../components/motion";
 import { VideoSlot } from "../components/VideoSlot";
 
 const request = "I have four hours. I love architecture and local food, and I want to walk less than three kilometres.";
@@ -17,7 +17,6 @@ const stops = [
 const routePath = "M60 400 C 160 400, 230 270, 330 270 C 430 270, 460 350, 560 350 C 660 350, 700 150, 800 150 C 900 150, 940 250, 1020 250";
 
 export function PlannerScene({ beat }: { beat: number }) {
-  const typed = useTypewriter(request, beat === 1, 40, 0.4);
   const routed = beat >= 2;
   return (
     <div className="planner">
@@ -31,13 +30,10 @@ export function PlannerScene({ beat }: { beat: number }) {
       </h1>
 
       <Reveal when={beat === 1} className="planner-request" y={20}>
-        <p className="title">
-          “{typed.visible}
-          {typed.done ? "”" : <motion.i className="caret" animate={{ opacity: [1, 0, 1] }} transition={{ duration: 0.9, repeat: Infinity }} />}
-        </p>
+        <p className="title">“{request}”</p>
         <ul className="constraints">
           {constraints.map((item, index) => (
-            <motion.li key={item} initial={{ opacity: 0, y: 12, scale: 0.9 }} animate={typed.done ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 12, scale: 0.9 }} transition={arrive(0.15 + index * 0.12, 0.5)}>
+            <motion.li key={item} initial={{ opacity: 0, y: 12, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={arrive(0.15 + index * 0.12, 0.5)}>
               {item}
             </motion.li>
           ))}

@@ -6,7 +6,7 @@ const categories = ["Local experiences and guided tours", "Restaurants and activ
 
 export function BusinessScene({ beat }: { beat: number }) {
   const transaction = beat >= 3;
-  const revenue = useCountUp(200, transaction, 1.6, 0.9);
+  const revenue = useCountUp(200, transaction, 0.7, 0.9);
   return (
     <div className="business">
       <motion.img className="photo business-backdrop" src={details} alt="" initial={{ scale: 1.06 }} animate={{ scale: transaction ? 1.12 : 1.06, x: transaction ? -60 : 0 }} transition={arrive(0, 1.6)} />

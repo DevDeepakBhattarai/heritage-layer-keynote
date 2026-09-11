@@ -1,4 +1,4 @@
-export const PRODUCT_NAME = "[Product name]";
+export const PRODUCT_NAME = "Nepal Yatra";
 
 export type SlideDefinition = {
   title: string;
