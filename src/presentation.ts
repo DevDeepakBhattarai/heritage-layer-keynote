@@ -22,9 +22,9 @@ export const slides = [
   },
   {
     title: "The product",
-    beats: 5,
+    beats: 4,
     script:
-      "The experience begins with a QR code at a participating site. The visitor opens a short introduction, with the option to listen, read more, or ask a question.\n\nWe'll use the device's language as a starting preference and let visitors change it. Once they understand the place, they can explore nearby sites or ask for a plan that fits their time, interests, and walking preferences.\n\nThe first interaction answers a question. The next helps them continue their visit.",
+      "The experience begins with a QR code at a participating site. The visitor opens a short introduction, with the option to listen, read more, or ask a question.\n\nWe'll use the device's language as a starting preference and let visitors change it. Once they understand the place, they can ask questions about it and explore nearby sites.\n\nThe first interaction answers a question. The next helps them continue their visit.",
   },
   {
     title: "The visitor experience",

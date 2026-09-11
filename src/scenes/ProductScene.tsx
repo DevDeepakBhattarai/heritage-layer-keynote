@@ -8,7 +8,6 @@ const steps = [
   { word: "Scan", text: "Open the story of the place in front of you." },
   { word: "Understand", text: "Read or listen in your preferred supported language." },
   { word: "Explore", text: "Ask questions and discover nearby places." },
-  { word: "Plan", text: "Build a journey around your interests and available time." },
 ];
 
 function ScanScreen() {
@@ -132,50 +131,7 @@ function ExploreScreen() {
   );
 }
 
-const stops = [
-  ["13:00", "Krishna Mandir"],
-  ["13:50", "Local food"],
-  ["14:40", "Artisan workshop"],
-  ["15:30", "Nearby landmark"],
-  ["16:40", "Ride back"],
-];
-
-function PlanScreen() {
-  return (
-    <div className="screen screen-plan">
-      <div className="plan-map">
-        <svg viewBox="0 0 376 190" aria-hidden="true">
-          <g className="map-streets">
-            <path d="M-10 60 C 120 40, 200 90, 390 50" />
-            <path d="M-10 150 C 90 130, 260 190, 390 140" />
-            <path d="M120 -10 C 140 60, 90 150, 130 200" />
-            <path d="M260 -10 C 250 70, 300 140, 270 200" />
-          </g>
-          <motion.path d="M40 140 C 90 130, 110 70, 160 80 S 250 130, 300 60 S 340 40, 350 50" fill="none" stroke="var(--amber)" strokeWidth="3" strokeLinecap="round" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.6, delay: 0.3, ease: easeOut }} />
-        </svg>
-      </div>
-      <div className="plan-head">
-        <strong>This afternoon</strong>
-        <span className="tnum">4 hours · 2.8 km</span>
-      </div>
-      <ol className="plan-list">
-        {stops.map(([time, stop], index) => (
-          <motion.li key={stop} initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={arrive(0.3 + index * 0.14, 0.6)}>
-            <i />
-            <em className="tnum">{time}</em>
-            <span>{stop}</span>
-          </motion.li>
-        ))}
-        <motion.i className="plan-line" initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ duration: 1.1, delay: 0.35, ease: easeOut }} />
-      </ol>
-      <motion.div className="plan-cta" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={arrive(1.1)}>
-        Adjust the plan
-      </motion.div>
-    </div>
-  );
-}
-
-const screens = [ScanScreen, UnderstandScreen, ExploreScreen, PlanScreen];
+const screens = [ScanScreen, UnderstandScreen, ExploreScreen];
 
 export function ProductScene({ beat }: { beat: number }) {
   const step = beat - 1;

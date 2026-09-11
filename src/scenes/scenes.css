@@ -106,19 +106,6 @@
 .suggestions span { font-size: 13px; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--paper-2); }
 .ask-field { margin: 16px 22px 16px; padding: 16px 20px; border-radius: 16px; background: rgb(244 237 226 / 8%); font-size: 15px; color: var(--paper-2); }
 
-.screen-plan { background: #0e0c0a; padding-top: 0; }
-.plan-map { margin: 0 -22px; height: 190px; background: #12100d; }
-.plan-map svg { width: 100%; height: 100%; display: block; }
-.plan-cta { margin-top: auto; padding: 14px; border-radius: 14px; background: var(--paper); color: var(--ink); text-align: center; font-size: 15px; font-weight: 600; }
-.plan-head { display: flex; justify-content: space-between; align-items: baseline; margin-top: 22px; }
-.plan-head strong { font-size: 24px; font-weight: 620; letter-spacing: -0.02em; }
-.plan-head span { font-size: 14px; color: var(--paper-2); }
-.plan-list { position: relative; margin-top: 28px; display: grid; gap: 38px; padding-left: 6px; }
-.plan-list li { display: flex; align-items: center; gap: 16px; font-size: 17px; font-weight: 500; position: relative; z-index: 1; }
-.plan-list em { font-style: normal; color: var(--paper-3); font-size: 13px; width: 44px; }
-.plan-list li i { width: 14px; height: 14px; border-radius: 50%; background: var(--ink); border: 3px solid var(--amber); flex: none; }
-.plan-list li:first-child i { background: var(--amber); }
-.plan-line { position: absolute; left: 12px; top: 8px; bottom: 8px; width: 2px; background: var(--amber); transform-origin: top; opacity: 0.6; }
 
 /* ---------- 4 · Experience ---------- */
 .experience { position: absolute; inset: 0; }
