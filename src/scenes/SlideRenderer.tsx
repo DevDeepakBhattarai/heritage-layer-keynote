@@ -1,6 +1,5 @@
 import { GoToMarketBackup, OfflineBackup, VerificationBackup } from "./BackupScenes";
 import { BusinessScene } from "./BusinessScene";
-import { ClosingScene } from "./ClosingScene";
 import { ExperienceScene } from "./ExperienceScene";
 import { HookScene } from "./HookScene";
 import { OfflineScene } from "./OfflineScene";
@@ -8,7 +7,7 @@ import { PlannerScene } from "./PlannerScene";
 import { ProblemScene } from "./ProblemScene";
 import { ProductScene } from "./ProductScene";
 import { SourcesScene } from "./SourcesScene";
-import { VisionScene } from "./VisionScene";
+import { CompetitionScene, VisionCloseScene, VisionScene } from "./VisionScene";
 import "./scenes.css";
 
 const scenes = [
@@ -20,11 +19,12 @@ const scenes = [
   OfflineScene,
   PlannerScene,
   BusinessScene,
-  VisionScene,
+  CompetitionScene,
   VerificationBackup,
   OfflineBackup,
   GoToMarketBackup,
-  ClosingScene,
+  VisionScene,
+  VisionCloseScene,
 ];
 
 export function SlideRenderer({ slide, beat }: { slide: number; beat: number }) {

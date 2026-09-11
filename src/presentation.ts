@@ -57,10 +57,10 @@ export const slides = [
       "The business model has two revenue streams, and both come after a visitor has found the free heritage story useful.\n\nFirst, commissions. A visitor learns about a place, finds an experience they want to try, and books through a partner. We earn a commission on eligible completed bookings.\n\nSecond, a subscription for visitors who want more than the free introduction: unlimited questions about a place, detailed multi-day trip planning, and saved routes across a whole visit. We'll test pricing during the pilot.\n\nIn this illustrative commission example, a two-thousand-rupee booking at a ten-percent commission produces two hundred rupees in gross revenue. That is before operating costs, refunds, and other applicable expenses.\n\nThe pilot will test whether booking and subscription revenue together can support content review and product operations. Commercial relationships will be visible to visitors, and historical content will remain independent of booking incentives.",
   },
   {
-    title: "Competition and vision",
-    beats: 4,
+    title: "Competition",
+    beats: 2,
     script:
-      "Saarang provides a concrete example of QR heritage storytelling in Nepal. That establishes an existing approach we can learn from. Our pilot must show why visitors and site partners would choose our offering.\n\nWe plan to connect editorial review, offline access, and personal travel planning in one experience. The advantage will depend on the quality of our local relationships, the knowledge we collect, and how reliably we maintain it.\n\nWe'll begin with a focused heritage pilot in Nepal. Our longer-term vision is a trusted information layer that helps people understand physical places wherever they travel.",
+      "Saarang provides a concrete example of QR heritage storytelling in Nepal. That establishes an existing approach we can learn from. Our pilot must show why visitors and site partners would choose our offering.\n\nWe plan to connect editorial review, offline access, and personal travel planning in one experience. The advantage will depend on the quality of our local relationships, the knowledge we collect, and how reliably we maintain it.",
   },
   {
     title: "Verification architecture",
@@ -84,9 +84,15 @@ export const slides = [
       "We propose starting with ten to twenty sites in one compact heritage area. This will make field research, visitor testing, and content maintenance easier to manage.\n\nWe'll seek permission from site custodians and work with local reviewers before publishing. The first priority is to learn whether visitors find the stories useful and can access them reliably.\n\nThen we'll test bookings with nearby businesses. We'll measure both revenue and the cost of maintaining accurate content.\n\nThose results will guide expansion and give municipalities or tourism partners concrete evidence to assess.",
   },
   {
-    title: "Closing",
+    title: "The vision",
     beats: 1,
-    script: "Thank you for your time. We're happy to take questions.",
+    script:
+      "We'll begin with a focused heritage pilot in Nepal. Our longer-term vision is a trusted information layer that helps people understand physical places wherever they travel.",
+  },
+  {
+    title: "Understand it",
+    beats: 1,
+    script: "Don't just visit a place. Understand it. Thank you for your time. We're happy to take questions.",
   },
 ] satisfies readonly SlideDefinition[];
 

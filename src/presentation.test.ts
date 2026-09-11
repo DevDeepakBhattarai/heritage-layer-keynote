@@ -2,10 +2,10 @@ import { describe, expect, it } from "vitest";
 import { clampLocation, globalBeatIndex, slides, totalBeats } from "./presentation";
 
 describe("presentation model", () => {
-  it("contains ten core slides and three backups, and ends on the closing slide", () => {
-    expect(slides.filter((slide) => !slide.backup)).toHaveLength(10);
+  it("contains eleven core slides and three backups, and ends on the vision close", () => {
+    expect(slides.filter((slide) => !slide.backup)).toHaveLength(11);
     expect(slides.filter((slide) => slide.backup)).toHaveLength(3);
-    expect(slides.at(-1)!.title).toBe("Closing");
+    expect(slides.at(-1)!.title).toBe("Understand it");
   });
 
   it("clamps deep links to a valid beat", () => {
