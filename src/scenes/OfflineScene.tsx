@@ -1,5 +1,4 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import dusk from "../assets/patan-dusk.webp";
 import { Reveal, arrive } from "../components/motion";
 import { Qr, Signal } from "../components/Primitives";
@@ -8,12 +7,7 @@ import { VideoSlot } from "../components/VideoSlot";
 const online = ["Full stories and images", "Questions grounded in reviewed content", "Supported language selection", "Planning and booking access"];
 const offline = ["A compact essential story", "Reading through our installed scanner", "Languages included or downloaded", "A visible content version"];
 
-function ConnectionDrop() {
-  const [dropped, setDropped] = useState(false);
-  useEffect(() => {
-    const id = window.setTimeout(() => setDropped(true), 1500);
-    return () => window.clearTimeout(id);
-  }, []);
+function ConnectionDrop({ dropped }: { dropped: boolean }) {
   return (
     <div className="connection">
       <Signal level={dropped ? 0 : 5} className="connection-signal" />
@@ -42,6 +36,8 @@ function Column({ heading, rows, when, className }: { heading: string; rows: str
 }
 
 export function OfflineScene({ beat }: { beat: number }) {
+  // The signal drops when the offline column appears, so the status always matches what is on screen.
+  const dropped = beat >= 2;
   return (
     <div className="offline">
       <motion.img className="photo offline-backdrop" src={dusk} alt="" initial={{ scale: 1.05 }} animate={{ scale: 1 }} transition={{ duration: 18, ease: "linear" }} />
@@ -55,7 +51,7 @@ export function OfflineScene({ beat }: { beat: number }) {
 
       <motion.div className="offline-signal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={arrive(0.4, 0.8)}>
         <VideoSlot kind="offline" style={{ width: 520, height: 300 }}>
-          <ConnectionDrop />
+          <ConnectionDrop dropped={dropped} />
         </VideoSlot>
       </motion.div>
 

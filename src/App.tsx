@@ -247,9 +247,15 @@ export function App() {
               </motion.div>
             </AnimatePresence>
             <Progress slide={location.slide} beat={location.beat} />
-            <button className="help-trigger" data-no-advance onClick={() => toggleOverlay("help")} aria-label="Show presentation help">
-              ?
-            </button>
+            <nav className="nav" data-no-advance aria-label="Slide navigation">
+              <button onClick={() => jump(0)} aria-label="First slide">«</button>
+              <button onClick={back} aria-label="Previous">‹</button>
+              <button onClick={forward} aria-label="Next">›</button>
+              <button onClick={() => jump(slides.length - 1)} aria-label="Last slide">»</button>
+              <button className="help-trigger" onClick={() => toggleOverlay("help")} aria-label="Show presentation help">
+                ?
+              </button>
+            </nav>
             <NotesPanel open={notesOpen} slide={location.slide} beat={location.beat} />
           </section>
           <HelpOverlay open={overlay === "help"} onClose={() => changeOverlay(null)} />

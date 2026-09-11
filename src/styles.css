@@ -134,10 +134,15 @@ img { display: block; }
   font-variant-numeric: tabular-nums;
 }
 
-.help-trigger {
+.nav {
   position: absolute;
   right: 40px;
   bottom: 24px;
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+}
+.nav button {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -147,11 +152,11 @@ img { display: block; }
   font-weight: 500;
   display: grid;
   place-items: center;
-  z-index: 20;
   opacity: 0.55;
   transition: opacity 200ms var(--ease-out), border-color 200ms var(--ease-out), color 200ms var(--ease-out);
 }
-.help-trigger:hover, .help-trigger:focus-visible { opacity: 1; border-color: var(--line-strong); color: var(--paper); }
+.nav button:not(.help-trigger) { font-size: 20px; line-height: 1; padding-bottom: 3px; }
+.nav button:hover, .nav button:focus-visible { opacity: 1; border-color: var(--line-strong); color: var(--paper); }
 
 .overlay {
   position: absolute;
