@@ -1,22 +1,24 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import details from "../assets/heritage-details.webp";
 import { Reveal, arrive, useCountUp } from "../components/motion";
 
-const streams = [
-  {
-    label: "Commissions",
-    intro: "On eligible bookings for",
-    items: ["Hotels · Booking.com, Tripadvisor", "Taxis · Pathao, inDrive", "Restaurants and cafés", "Tours and attraction tickets"],
-  },
-  {
-    label: "Subscription",
-    intro: "For visitors who want more",
-    items: ["Unlimited questions about a place", "Detailed multi-day trip planning", "Saved routes across a whole visit"],
-  },
-];
+const subscription = {
+  label: "Subscription",
+  intro: "For visitors who want more than the free story.",
+  items: ["Unlimited questions about a place", "Detailed multi-day trip planning", "Saved routes across a whole visit"],
+  note: "Pricing will be tested in the pilot.",
+};
+
+const commission = {
+  label: "Commissions",
+  intro: "On eligible bookings made through partners.",
+  items: ["Hotels", "Taxis", "Restaurants and cafés", "Tours and tickets"],
+  note: "Partners such as Booking.com, Tripadvisor, Pathao, and inDrive.",
+};
 
 export function BusinessScene({ beat }: { beat: number }) {
   const transaction = beat >= 3;
+  const stream = beat >= 2 ? commission : beat >= 1 ? subscription : null;
   const revenue = useCountUp(200, transaction, 0.7, 0.9);
   return (
     <div className="business">
@@ -27,33 +29,32 @@ export function BusinessScene({ beat }: { beat: number }) {
       <motion.div className="business-copy" initial={false} animate={{ opacity: transaction ? 0.3 : 1, x: transaction ? -20 : 0 }} transition={arrive(0, 0.8)}>
         <h1 className="headline">
           <Reveal as="span" when y={0} style={{ display: "block" }}>
-            Two revenue streams after visitors discover value
+            Two revenue streams
           </Reveal>
         </h1>
-
-        <Reveal when={beat >= 1} className="business-free" y={20}>
-          <p className="title">Keep essential heritage stories free to access.</p>
+        <Reveal as="p" when className="lead muted business-free" delay={0.3}>
+          Essential heritage stories stay free.
         </Reveal>
 
-        <Reveal when={beat >= 2} className="business-streams" y={20}>
-          {streams.map((stream, column) => (
-            <div key={stream.label} className="business-stream">
-              <motion.h2 className="title" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={arrive(0.15 + column * 0.45, 0.6)}>
-                {stream.label}
-              </motion.h2>
-              <motion.p className="caption" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={arrive(0.25 + column * 0.45, 0.6)}>
-                {stream.intro}
-              </motion.p>
+        {/* One stream on screen at a time: subscription first, then the commission the transaction builds on. */}
+        <AnimatePresence mode="wait">
+          {stream && (
+            <motion.div key={stream.label} className="business-stream" initial={{ opacity: 0, y: 20, filter: "blur(12px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} exit={{ opacity: 0, y: -12, filter: "blur(8px)", transition: arrive(0, 0.3) }} transition={arrive(0, 0.7)}>
+              <h2 className="title">{stream.label}</h2>
+              <p className="lead muted">{stream.intro}</p>
               <ul>
                 {stream.items.map((item, index) => (
-                  <motion.li key={item} className="body" initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }} transition={arrive(0.35 + column * 0.45 + index * 0.12, 0.6)}>
+                  <motion.li key={item} className="lead" initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }} transition={arrive(0.3 + index * 0.12, 0.6)}>
                     {item}
                   </motion.li>
                 ))}
               </ul>
-            </div>
-          ))}
-        </Reveal>
+              <motion.p className="caption" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={arrive(0.9, 0.6)}>
+                {stream.note}
+              </motion.p>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
 
       <Reveal when={transaction} className="transaction" y={40} duration={1}>

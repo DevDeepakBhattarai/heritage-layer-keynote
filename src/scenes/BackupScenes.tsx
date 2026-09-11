@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import rooftop from "../assets/patan-rooftop.webp";
 import { Reveal, arrive, easeOut } from "../components/motion";
 import { Qr } from "../components/Primitives";
 
@@ -91,67 +90,6 @@ export function OfflineBackup({ beat }: { beat: number }) {
 
       <Reveal as="p" when={beat >= 3} className="lead muted capsule-note" delay={0.6}>
         Pilot tests will measure capacity, scan reliability, and language coverage.
-      </Reveal>
-    </div>
-  );
-}
-
-const pilotStages = [
-  { title: "Establish the content", text: "Secure site permission and work with local reviewers." },
-  { title: "Test the visitor experience", text: "Measure scans, story engagement, language needs, and offline use." },
-  { title: "Add nearby booking partners", text: "Start with relevant experiences and services." },
-  { title: "Expand after evaluating the pilot", text: "Use visitor results and operating costs to guide the next location." },
-];
-
-const measures = [
-  "Visitor understanding and satisfaction",
-  "Scan-to-story engagement",
-  "Content review time and correction rate",
-  "Booking conversion and revenue per visitor",
-  "Cost to operate and maintain each site",
-];
-
-const sites = [
-  [14, 58], [19, 66], [23, 52], [30, 72], [34, 60], [38, 48], [45, 63], [50, 55], [55, 70], [60, 50], [66, 62], [72, 56], [78, 68], [84, 60],
-];
-
-export function GoToMarketBackup({ beat }: { beat: number }) {
-  return (
-    <div className="backup pilot">
-      <motion.img className="photo" src={rooftop} alt="" initial={{ scale: 1.06 }} animate={{ scale: 1, opacity: beat >= 1 ? 0.35 : 1 }} transition={{ scale: { duration: 16, ease: "linear" }, opacity: arrive(0, 1) }} />
-      <div className="pilot-shade" />
-      <div className="pilot-sites" aria-hidden="true">
-        {sites.map(([x, y], index) => (
-          <motion.i key={index} style={{ left: `${x}%`, top: `${y}%` }} initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: beat >= 1 ? 0.12 : 1 }} transition={{ scale: { duration: 0.6, delay: 0.6 + index * 0.09, ease: easeOut }, opacity: arrive(0, 0.6) }} />
-        ))}
-      </div>
-
-      <h1 className="headline">
-        <Reveal as="span" when y={0} style={{ display: "block" }}>
-          Proposed pilot across 10 to 20 nearby heritage sites
-        </Reveal>
-      </h1>
-
-      <Reveal when={beat >= 1} className="pilot-stages" y={20}>
-        <ol>
-          {pilotStages.map((stage, index) => (
-            <motion.li key={stage.title} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={arrive(0.15 + index * 0.14, 0.6)}>
-              <h2 className="lead">{stage.title}</h2>
-              <p className="body">{stage.text}</p>
-            </motion.li>
-          ))}
-        </ol>
-      </Reveal>
-
-      <Reveal when={beat >= 2} className="pilot-measures" y={20}>
-        <h2 className="title">Pilot measures</h2>
-        <ul>
-          {measures.map((measure, index) => (
-            <motion.li key={measure} className="body" initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={arrive(0.2 + index * 0.12, 0.6)}>
-              {measure}
-            </motion.li>
-          ))}
-        </ul>
       </Reveal>
     </div>
   );

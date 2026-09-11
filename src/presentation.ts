@@ -54,7 +54,7 @@ export const slides = [
     title: "Business model",
     beats: 4,
     script:
-      "The business model has two revenue streams, and both come after a visitor has found the free heritage story useful.\n\nFirst, commissions. A visitor learns about a place, finds an experience they want to try, and books through a partner. We earn a commission on eligible completed bookings.\n\nSecond, a subscription for visitors who want more than the free introduction: unlimited questions about a place, detailed multi-day trip planning, and saved routes across a whole visit. We'll test pricing during the pilot.\n\nIn this illustrative commission example, a two-thousand-rupee booking at a ten-percent commission produces two hundred rupees in gross revenue. That is before operating costs, refunds, and other applicable expenses.\n\nThe pilot will test whether booking and subscription revenue together can support content review and product operations. Commercial relationships will be visible to visitors, and historical content will remain independent of booking incentives.",
+      "The business model has two revenue streams, and both come after a visitor has found the free heritage story useful.\n\nFirst, a subscription for visitors who want more than the free introduction: unlimited questions about a place, detailed multi-day trip planning, and saved routes across a whole visit. We'll test pricing during the pilot.\n\nSecond, commissions. A visitor learns about a place, finds an experience they want to try, and books through a partner such as Booking.com, Tripadvisor, Pathao, or inDrive. We earn a commission on eligible completed bookings.\n\nIn this illustrative commission example, a two-thousand-rupee booking at a ten-percent commission produces two hundred rupees in gross revenue. That is before operating costs, refunds, and other applicable expenses.\n\nThe pilot will test whether booking and subscription revenue together can support content review and product operations. Commercial relationships will be visible to visitors, and historical content will remain independent of booking incentives.",
   },
   {
     title: "Competition",
@@ -77,22 +77,10 @@ export const slides = [
       "The QR capsule will hold a limited amount of essential content. Larger stories, images, and audio will come through online access or downloaded packs.\n\nOur scanner must already be installed for the offline capsule to work. A visitor's available offline languages will depend on the capsule and downloaded resources. We won't promise unrestricted offline translation or AI questions.\n\nEach capsule will identify its content version. The app can check for newer material when connectivity returns, while the information printed in the physical code stays unchanged until we replace it.\n\nBefore committing to this design, we'll test how much useful content fits and whether visitors can scan the printed codes reliably in real conditions.",
   },
   {
-    title: "Go-to-market",
-    beats: 3,
-    backup: true,
-    script:
-      "We propose starting with ten to twenty sites in one compact heritage area. This will make field research, visitor testing, and content maintenance easier to manage.\n\nWe'll seek permission from site custodians and work with local reviewers before publishing. The first priority is to learn whether visitors find the stories useful and can access them reliably.\n\nThen we'll test bookings with nearby businesses. We'll measure both revenue and the cost of maintaining accurate content.\n\nThose results will guide expansion and give municipalities or tourism partners concrete evidence to assess.",
-  },
-  {
     title: "The vision",
-    beats: 1,
+    beats: 3,
     script:
-      "We'll begin with a focused heritage pilot in Nepal. Our longer-term vision is a trusted information layer that helps people understand physical places wherever they travel.",
-  },
-  {
-    title: "Understand it",
-    beats: 1,
-    script: "Don't just visit a place. Understand it. Thank you for your time. We're happy to take questions.",
+      "We'll begin with a focused heritage pilot in Nepal. Our longer-term vision is a trusted information layer that helps people understand physical places wherever they travel.\n\nDon't just visit a place. Understand it.\n\nThank you for your time. We're happy to take questions.",
   },
 ] satisfies readonly SlideDefinition[];
 
