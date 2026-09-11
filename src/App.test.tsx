@@ -63,7 +63,7 @@ describe("presentation interactions", () => {
     expect(slides[1].beats).toBe(6);
     expect(params.get("slide")).toBe("3");
     expect(params.get("beat")).toBe("2");
-    expect(host.querySelector(".progress")?.getAttribute("aria-label")).toContain("Slide 3 of 12, beat 2");
+    expect(host.querySelector(".progress")?.getAttribute("aria-label")).toContain("Slide 3 of 11, beat 2");
   });
 
   it("steps back across a slide boundary to the previous slide's last beat", async () => {

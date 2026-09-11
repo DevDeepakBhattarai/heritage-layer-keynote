@@ -57,12 +57,6 @@ export const slides = [
       "The business model has two revenue streams, and both come after a visitor has found the free heritage story useful.\n\nFirst, a subscription for visitors who want more than the free introduction: unlimited questions about a place, detailed multi-day trip planning, and saved routes across a whole visit. We'll test pricing during the pilot.\n\nSecond, commissions. A visitor learns about a place, finds an experience they want to try, and books through a partner such as Booking.com, Tripadvisor, Pathao, or inDrive. We earn a commission on eligible completed bookings.\n\nIn this illustrative commission example, a two-thousand-rupee booking at a ten-percent commission produces two hundred rupees in gross revenue. That is before operating costs, refunds, and other applicable expenses.\n\nThe pilot will test whether booking and subscription revenue together can support content review and product operations. Commercial relationships will be visible to visitors, and historical content will remain independent of booking incentives.",
   },
   {
-    title: "Competition",
-    beats: 2,
-    script:
-      "Saarang provides a concrete example of QR heritage storytelling in Nepal. That establishes an existing approach we can learn from. Our pilot must show why visitors and site partners would choose our offering.\n\nWe plan to connect editorial review, offline access, and personal travel planning in one experience. The advantage will depend on the quality of our local relationships, the knowledge we collect, and how reliably we maintain it.",
-  },
-  {
     title: "Verification architecture",
     beats: 4,
     backup: true,

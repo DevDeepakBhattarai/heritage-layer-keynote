@@ -259,16 +259,6 @@
     linear-gradient(90deg, rgb(10 9 8 / 82%) 0%, rgb(10 9 8 / 50%) 45%, rgb(10 9 8 / 20%) 100%),
     linear-gradient(0deg, rgb(10 9 8 / 80%) 0%, rgb(10 9 8 / 0%) 50%);
 }
-.competition { position: absolute; inset: 0; }
-.competition-photo { filter: brightness(0.55) saturate(0.8); object-position: 62% 50%; }
-.competition-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(10 9 8 / 98%) 0%, rgb(10 9 8 / 94%) 46%, rgb(10 9 8 / 55%) 72%, rgb(10 9 8 / 30%) 100%), linear-gradient(0deg, rgb(10 9 8 / 70%) 0%, rgb(10 9 8 / 0%) 40%); }
-.competition .headline { position: absolute; left: 120px; top: 132px; width: 1200px; font-size: 88px; }
-.competition-note { position: absolute; left: 120px; top: 350px; width: 1100px; font-size: 38px; }
-.focus { position: absolute; left: 120px; top: 480px; width: 1000px; }
-.focus .title { font-size: 46px; }
-.focus ul { display: grid; row-gap: 26px; margin-top: 36px; }
-.focus li { position: relative; padding-top: 22px; font-size: 32px; font-weight: 500; }
-.focus li i { position: absolute; left: 0; top: 0; width: 100%; height: 1px; background: var(--line-strong); transform-origin: left; }
 .vision-copy { position: absolute; left: 120px; top: 0; bottom: 0; width: 1500px; display: flex; flex-direction: column; justify-content: center; gap: 44px; }
 .vision-layer { font-size: 100px; width: 1300px; }
 .vision-layer.small { font-size: 38px; width: 1100px; }

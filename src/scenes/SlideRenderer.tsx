@@ -7,7 +7,7 @@ import { PlannerScene } from "./PlannerScene";
 import { ProblemScene } from "./ProblemScene";
 import { ProductScene } from "./ProductScene";
 import { SourcesScene } from "./SourcesScene";
-import { CompetitionScene, VisionScene } from "./VisionScene";
+import { VisionScene } from "./VisionScene";
 import "./scenes.css";
 
 const scenes = [
@@ -19,7 +19,6 @@ const scenes = [
   OfflineScene,
   PlannerScene,
   BusinessScene,
-  CompetitionScene,
   VerificationBackup,
   OfflineBackup,
   VisionScene,
