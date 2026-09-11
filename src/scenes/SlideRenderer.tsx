@@ -16,11 +16,11 @@ const scenes = [
   ProductScene,
   ExperienceScene,
   SourcesScene,
+  VerificationBackup,
   OfflineScene,
+  OfflineBackup,
   PlannerScene,
   BusinessScene,
-  VerificationBackup,
-  OfflineBackup,
   VisionScene,
 ];
 

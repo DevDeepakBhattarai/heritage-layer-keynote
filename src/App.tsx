@@ -147,7 +147,7 @@ export function App() {
       } else if (key === "f") {
         void (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen());
       } else if (key === "b") {
-        jump(firstBackupIndex);
+        if (firstBackupIndex >= 0) jump(firstBackupIndex);
       } else if ([" ", "Enter", "ArrowRight", "PageDown"].includes(event.key)) {
         event.preventDefault();
         forward();

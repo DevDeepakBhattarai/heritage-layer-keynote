@@ -7,7 +7,7 @@ export type SlideDefinition = {
   backup?: boolean;
 };
 
-export const slides = [
+export const slides: readonly SlideDefinition[] = [
   {
     title: "The hook",
     beats: 4,
@@ -39,10 +39,22 @@ export const slides = [
       "We'll begin with authoritative material that we have permission to reuse. Site visits will add knowledge that published sources may miss.\n\nWhen teams visit a location to arrange QR placement, they can also document interviews, collect references, and work with local custodians. Contributors will receive attribution where appropriate, and we'll seek permission before publishing their material.\n\nCommunity submissions will enter a review queue. Reviewers will compare the evidence with existing content, resolve questions, and record the decision before updating the published article.",
   },
   {
+    title: "Verification architecture",
+    beats: 4,
+    script:
+      "We'll review individual claims as well as complete articles. Each claim will retain its source and classification, which helps reviewers identify what needs checking when an article changes.\n\nReviewers will assess sources according to the claim. A historical date may require documentary evidence. A local tradition requires accurate attribution to the community or person sharing it.\n\nIf credible sources disagree, we'll describe that disagreement or hold the claim for further review. Corrections will create a new version, preserving a record of what changed and why.\n\nWe'll also check translations for changes in meaning, particularly names, dates, cultural terms, and expressions of uncertainty.",
+  },
+  {
     title: "Offline and multilingual access",
     beats: 4,
     script:
       "Our offline plan has two parts. First, we want to encode a compact set of essential facts directly in the QR code for our installed scanner to read. Second, visitors can download larger content packs before exploring.\n\nA standard QR link still needs connectivity to open a website. The offline experience requires our scanner to be installed, and language support depends on what is available on the device.\n\nWe'll test the capsule's capacity and scanning reliability during the pilot. The full online experience will add richer media, questions, and current booking information.",
+  },
+  {
+    title: "QR and offline architecture",
+    beats: 4,
+    script:
+      "The QR code encodes plain text, not only a link. A site identifier, a content version, and a compact set of essential facts sit in the code itself, so any camera app or scanner shows them with no connection and no install.\n\nWith our app installed, the same code opens the full story. Visitors download a site pack in advance, and the app reads the story, audio, images, and bundled languages from that pack while offline.\n\nEach code carries its content version. When connectivity returns, the app compares versions, fetches newer content and media, and enables AI questions and booking. The printed code stays unchanged until we replace it.\n\nBefore committing to this design, we'll test how much text fits in a scannable code and whether visitors can read printed codes reliably in real conditions.",
   },
   {
     title: "The AI travel planner",
@@ -57,26 +69,12 @@ export const slides = [
       "The business model has two revenue streams, and both come after a visitor has found the free heritage story useful.\n\nFirst, a subscription for visitors who want more than the free introduction: unlimited questions about a place, detailed multi-day trip planning, and saved routes across a whole visit. We'll test pricing during the pilot.\n\nSecond, commissions. A visitor learns about a place, finds an experience they want to try, and books through a partner such as Booking.com, Tripadvisor, Pathao, or inDrive. We earn a commission on eligible completed bookings.\n\nIn this illustrative commission example, a two-thousand-rupee booking at a ten-percent commission produces two hundred rupees in gross revenue. That is before operating costs, refunds, and other applicable expenses.\n\nThe pilot will test whether booking and subscription revenue together can support content review and product operations. Commercial relationships will be visible to visitors, and historical content will remain independent of booking incentives.",
   },
   {
-    title: "Verification architecture",
-    beats: 4,
-    backup: true,
-    script:
-      "We'll review individual claims as well as complete articles. Each claim will retain its source and classification, which helps reviewers identify what needs checking when an article changes.\n\nReviewers will assess sources according to the claim. A historical date may require documentary evidence. A local tradition requires accurate attribution to the community or person sharing it.\n\nIf credible sources disagree, we'll describe that disagreement or hold the claim for further review. Corrections will create a new version, preserving a record of what changed and why.\n\nWe'll also check translations for changes in meaning, particularly names, dates, cultural terms, and expressions of uncertainty.",
-  },
-  {
-    title: "QR and offline architecture",
-    beats: 4,
-    backup: true,
-    script:
-      "The QR code encodes plain text, not only a link. A site identifier, a content version, and a compact set of essential facts sit in the code itself, so any camera app or scanner shows them with no connection and no install.\n\nWith our app installed, the same code opens the full story. Visitors download a site pack in advance, and the app reads the story, audio, images, and bundled languages from that pack while offline.\n\nEach code carries its content version. When connectivity returns, the app compares versions, fetches newer content and media, and enables AI questions and booking. The printed code stays unchanged until we replace it.\n\nBefore committing to this design, we'll test how much text fits in a scannable code and whether visitors can read printed codes reliably in real conditions.",
-  },
-  {
     title: "The vision",
     beats: 3,
     script:
       "We'll begin with a focused heritage pilot in Nepal. Our longer-term vision is a trusted information layer that helps people understand physical places wherever they travel.\n\nDon't just visit a place. Understand it.\n\nThank you for your time. We're happy to take questions.",
   },
-] satisfies readonly SlideDefinition[];
+];
 
 export const firstBackupIndex = slides.findIndex((slide) => slide.backup);
 export const totalBeats = slides.reduce((sum, slide) => sum + slide.beats, 0);
