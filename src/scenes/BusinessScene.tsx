@@ -12,8 +12,8 @@ const subscription = {
 const commission = {
   label: "Commissions",
   intro: "On eligible bookings made through partners.",
-  items: ["Hotels", "Taxis", "Restaurants and cafés", "Tours and tickets"],
-  note: "Partners such as Booking.com, Tripadvisor, Pathao, and inDrive.",
+  items: ["Hotels · Booking.com, Tripadvisor", "Taxis · Pathao, inDrive", "Restaurants and cafés", "Tours and attraction tickets"],
+  note: "Partner terms will vary.",
 };
 
 export function BusinessScene({ beat }: { beat: number }) {
