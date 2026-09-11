@@ -1,7 +1,7 @@
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { HelpOverlay, NotesPanel, Overview, Progress } from "./components/Chrome";
-import { clampLocation, coreSlideCount, slides } from "./presentation";
+import { clampLocation, firstBackupIndex, slides } from "./presentation";
 import { SlideRenderer } from "./scenes/SlideRenderer";
 
 type Location = { slide: number; beat: number };
@@ -147,7 +147,7 @@ export function App() {
       } else if (key === "f") {
         void (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen());
       } else if (key === "b") {
-        jump(coreSlideCount);
+        jump(firstBackupIndex);
       } else if ([" ", "Enter", "ArrowRight", "PageDown"].includes(event.key)) {
         event.preventDefault();
         forward();
@@ -159,7 +159,7 @@ export function App() {
         jump(0);
       } else if (event.key === "End") {
         event.preventDefault();
-        jump(coreSlideCount - 1, slides[coreSlideCount - 1].beats - 1);
+        jump(slides.length - 1, slides[slides.length - 1].beats - 1);
       }
     };
     window.addEventListener("keydown", onKeyDown);

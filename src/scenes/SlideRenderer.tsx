@@ -23,10 +23,10 @@ const scenes = [
   PlannerScene,
   BusinessScene,
   VisionScene,
-  ClosingScene,
   VerificationBackup,
   OfflineBackup,
   GoToMarketBackup,
+  ClosingScene,
 ];
 
 export function SlideRenderer({ slide, beat }: { slide: number; beat: number }) {

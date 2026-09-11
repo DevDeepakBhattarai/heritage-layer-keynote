@@ -69,12 +69,6 @@ export const slides = [
       "Saarang provides a concrete example of QR heritage storytelling in Nepal. That establishes an existing approach we can learn from. Our pilot must show why visitors and site partners would choose our offering.\n\nWe plan to connect editorial review, offline access, and personal travel planning in one experience. The advantage will depend on the quality of our local relationships, the knowledge we collect, and how reliably we maintain it.\n\nWe'll begin with a focused heritage pilot in Nepal. Our longer-term vision is a trusted information layer that helps people understand physical places wherever they travel.",
   },
   {
-    title: "Closing",
-    beats: 1,
-    script:
-      "Thank you for your time. We're happy to take questions, and the backup slides cover verification, the offline design, and go-to-market in more detail.",
-  },
-  {
     title: "Verification architecture",
     beats: 4,
     backup: true,
@@ -95,9 +89,14 @@ export const slides = [
     script:
       "We propose starting with ten to twenty sites in one compact heritage area. This will make field research, visitor testing, and content maintenance easier to manage.\n\nWe'll seek permission from site custodians and work with local reviewers before publishing. The first priority is to learn whether visitors find the stories useful and can access them reliably.\n\nThen we'll test bookings with nearby businesses. We'll measure both revenue and the cost of maintaining accurate content.\n\nThose results will guide expansion and give municipalities or tourism partners concrete evidence to assess.",
   },
+  {
+    title: "Closing",
+    beats: 1,
+    script: "Thank you for your time. We're happy to take questions.",
+  },
 ] satisfies readonly SlideDefinition[];
 
-export const coreSlideCount = slides.filter((slide) => !slide.backup).length;
+export const firstBackupIndex = slides.findIndex((slide) => slide.backup);
 export const totalBeats = slides.reduce((sum, slide) => sum + slide.beats, 0);
 
 export function globalBeatIndex(slideIndex: number, beat: number) {

@@ -293,7 +293,7 @@
 .vision-close .display { font-size: 150px; }
 .vision-brand { font-size: 36px; }
 
-/* ---------- 11 · Closing ---------- */
+/* ---------- 14 · Closing ---------- */
 .closing { position: absolute; inset: 0; }
 .closing .photo { filter: brightness(0.62); }
 .closing-shade {
