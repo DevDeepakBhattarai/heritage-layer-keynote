@@ -152,26 +152,7 @@
 .ask-input { font-size: 16px; font-weight: 500; display: flex; align-items: center; }
 .caret { display: inline-block; width: 2px; height: 1em; background: var(--amber); margin-left: 3px; vertical-align: -0.1em; }
 
-/* ---------- 5 · Evidence ---------- */
-.evidence { position: absolute; inset: 0; background: radial-gradient(70% 60% at 50% 110%, rgb(233 162 59 / 10%) 0%, rgb(233 162 59 / 0%) 70%) var(--ink); }
-.evidence-body { position: absolute; inset: 0; }
-.evidence-headline { position: absolute; left: 120px; top: 120px; width: 1300px; }
-.pipeline { position: absolute; left: 0; right: 0; top: 356px; }
-.pipeline .caption { position: absolute; left: 120px; top: -6px; }
-.pipeline-svg { display: block; width: 1920px; height: 120px; margin-top: 30px; }
-.pipeline-labels { position: relative; height: 90px; }
-.pipeline-labels li { position: absolute; top: 6px; width: 300px; text-align: center; font-size: 26px; line-height: 1.25; font-weight: 500; color: var(--paper-2); }
-.pipeline-labels li.authority { color: var(--paper); font-weight: 600; }
-.kinds { position: absolute; left: 120px; right: 120px; top: 660px; }
-.kinds .title { font-size: 48px; }
-.kinds-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; margin-top: 44px; }
-.kinds-list li { display: grid; gap: 16px; justify-items: start; }
-.stamp { font-size: 20px; font-weight: 600; letter-spacing: 0.02em; color: var(--amber); padding: 10px 18px; border: 2px solid var(--amber); border-radius: 8px; }
-.kinds-list .body { font-size: 24px; }
-.evidence-resolution { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; }
-.evidence-resolution .headline { font-size: 108px; }
-
-/* ---------- 6 · Sources ---------- */
+/* ---------- 5 · Sources ---------- */
 .sources { position: absolute; inset: 0; }
 .sources-backdrop { filter: brightness(0.22) saturate(0.7); transform: scale(1.04); }
 .sources-intro { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; }
@@ -203,7 +184,7 @@
 .record li:last-child { padding-right: 0; }
 .review-bar .caption { grid-column: 1 / -1; font-size: 22px; }
 
-/* ---------- 7 · Offline ---------- */
+/* ---------- 6 · Offline ---------- */
 .offline { position: absolute; inset: 0; }
 .offline-backdrop { filter: brightness(0.42) saturate(0.85); }
 .offline-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(10 9 8 / 90%) 0%, rgb(10 9 8 / 72%) 50%, rgb(10 9 8 / 40%) 100%), linear-gradient(0deg, rgb(10 9 8 / 70%) 0%, rgb(10 9 8 / 0%) 40%); }
@@ -222,7 +203,7 @@
 .capsule { position: absolute; left: 120px; top: 868px; display: flex; align-items: center; gap: 44px; }
 .capsule .lead { font-size: 34px; }
 
-/* ---------- 8 · Planner ---------- */
+/* ---------- 7 · Planner ---------- */
 .planner { position: absolute; inset: 0; }
 .planner .photo { filter: brightness(0.62); }
 .planner-shade {
@@ -247,7 +228,7 @@
 .planner-notes { position: absolute; left: 120px; top: 440px; width: 1000px; display: grid; gap: 12px; }
 .planner-notes .lead { font-size: 32px; }
 
-/* ---------- 9 · Business ---------- */
+/* ---------- 8 · Business ---------- */
 .business { position: absolute; inset: 0; }
 .business-backdrop { object-position: 100% 50%; filter: brightness(0.7) saturate(0.9); }
 .business-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(10 9 8 / 96%) 0%, rgb(10 9 8 / 90%) 42%, rgb(10 9 8 / 30%) 75%, rgb(10 9 8 / 20%) 100%); }
@@ -267,7 +248,7 @@
 .transaction .result dt { font-size: 132px; color: var(--amber); }
 .transaction .result dd { color: var(--paper-2); }
 
-/* ---------- 10 · Vision ---------- */
+/* ---------- 9 · Vision ---------- */
 .vision { position: absolute; inset: 0; }
 .vision .photo { filter: brightness(0.72); }
 .vision-shade {
@@ -293,7 +274,7 @@
 .vision-close .display { font-size: 150px; }
 .vision-brand { font-size: 36px; }
 
-/* ---------- 14 · Closing ---------- */
+/* ---------- 13 · Closing ---------- */
 .closing { position: absolute; inset: 0; }
 .closing .photo { filter: brightness(0.62); }
 .closing-shade {

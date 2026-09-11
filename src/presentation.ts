@@ -33,12 +33,6 @@ export const slides = [
       "We'll start with a short introduction that visitors can finish while standing at the site. Someone interested in architecture can explore the building's form. Someone curious about worship can read about local traditions and visitor etiquette.\n\nThe source material stays accessible, and follow-up questions draw on reviewed content. Visitors choose how deep to go.\n\nSource for the heritage example: Nepal Tourism Board's Kathmandu Valley guide.",
   },
   {
-    title: "Information correctness",
-    beats: 4,
-    script:
-      "Our publishing process will start with sources and human review. AI will translate and explain approved material, with answers linked back to supporting content.\n\nWe'll also preserve the distinction between different kinds of knowledge. A documented construction date is a historical claim. A story passed down by temple custodians is an oral tradition. Both can belong in the experience, with clear labels.\n\nConfirming that a community tells a story does not establish that every event in the story happened. Our responsibility is to represent the account accurately and explain what supports it.",
-  },
-  {
     title: "Information collection",
     beats: 5,
     script:

@@ -1,7 +1,6 @@
 import { GoToMarketBackup, OfflineBackup, VerificationBackup } from "./BackupScenes";
 import { BusinessScene } from "./BusinessScene";
 import { ClosingScene } from "./ClosingScene";
-import { EvidenceScene } from "./EvidenceScene";
 import { ExperienceScene } from "./ExperienceScene";
 import { HookScene } from "./HookScene";
 import { OfflineScene } from "./OfflineScene";
@@ -17,7 +16,6 @@ const scenes = [
   ProblemScene,
   ProductScene,
   ExperienceScene,
-  EvidenceScene,
   SourcesScene,
   OfflineScene,
   PlannerScene,
