@@ -48,9 +48,9 @@ export function VerificationBackup({ beat }: { beat: number }) {
 }
 
 const capsuleColumns = [
-  { title: "Inside the QR capsule", rows: ["Site identifier", "Content version", "Compressed essential text"] },
-  { title: "On the visitor’s device", rows: ["Installed scanner and decoder", "Available language resources", "Optional downloaded site packs"] },
-  { title: "When connectivity returns", rows: ["Check for updates", "Retrieve full content", "Enable online questions and booking services"] },
+  { title: "Encoded in the QR code", rows: ["Site ID and content version", "Essential facts as plain text", "Readable by any camera app"] },
+  { title: "With our app installed", rows: ["Site packs downloaded in advance", "Full story, audio, and images offline", "Languages bundled in the pack"] },
+  { title: "When connectivity returns", rows: ["Compares the content version", "Fetches new content and media", "Enables AI questions and booking"] },
 ];
 
 export function OfflineBackup({ beat }: { beat: number }) {
@@ -58,7 +58,7 @@ export function OfflineBackup({ beat }: { beat: number }) {
     <div className="backup capsule-design">
       <h1 className="headline">
         <Reveal as="span" when y={0} style={{ display: "block" }}>
-          Proposed offline design
+          How one scan works offline
         </Reveal>
       </h1>
 
@@ -89,7 +89,7 @@ export function OfflineBackup({ beat }: { beat: number }) {
       </div>
 
       <Reveal as="p" when={beat >= 3} className="lead muted capsule-note" delay={0.6}>
-        Pilot tests will measure capacity, scan reliability, and language coverage.
+        Any scanner shows the facts. The app plus a site pack shows the full story.
       </Reveal>
     </div>
   );

@@ -68,7 +68,7 @@ export const slides = [
     beats: 4,
     backup: true,
     script:
-      "The QR capsule will hold a limited amount of essential content. Larger stories, images, and audio will come through online access or downloaded packs.\n\nOur scanner must already be installed for the offline capsule to work. A visitor's available offline languages will depend on the capsule and downloaded resources. We won't promise unrestricted offline translation or AI questions.\n\nEach capsule will identify its content version. The app can check for newer material when connectivity returns, while the information printed in the physical code stays unchanged until we replace it.\n\nBefore committing to this design, we'll test how much useful content fits and whether visitors can scan the printed codes reliably in real conditions.",
+      "The QR code encodes plain text, not only a link. A site identifier, a content version, and a compact set of essential facts sit in the code itself, so any camera app or scanner shows them with no connection and no install.\n\nWith our app installed, the same code opens the full story. Visitors download a site pack in advance, and the app reads the story, audio, images, and bundled languages from that pack while offline.\n\nEach code carries its content version. When connectivity returns, the app compares versions, fetches newer content and media, and enables AI questions and booking. The printed code stays unchanged until we replace it.\n\nBefore committing to this design, we'll test how much text fits in a scannable code and whether visitors can read printed codes reliably in real conditions.",
   },
   {
     title: "The vision",
