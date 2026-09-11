@@ -293,6 +293,21 @@
 .vision-close .display { font-size: 150px; }
 .vision-brand { font-size: 36px; }
 
+/* ---------- 11 · Closing ---------- */
+.closing { position: absolute; inset: 0; }
+.closing .photo { filter: brightness(0.62); }
+.closing-shade {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgb(10 9 8 / 90%) 0%, rgb(10 9 8 / 62%) 45%, rgb(10 9 8 / 24%) 100%),
+    linear-gradient(0deg, rgb(10 9 8 / 80%) 0%, rgb(10 9 8 / 0%) 50%);
+}
+.closing-copy { position: absolute; left: 120px; top: 0; bottom: 0; width: 1300px; display: flex; flex-direction: column; justify-content: center; gap: 36px; }
+.closing-copy .display { font-size: 150px; }
+.closing-rule { display: block; width: 160px; height: 2px; background: var(--amber); }
+.closing-copy .lead { font-size: 40px; }
+.closing-brand { font-size: 36px; font-weight: 500; letter-spacing: -0.015em; color: var(--paper-3); margin-top: 60px; }
+
 /* ---------- Backups ---------- */
 .backup { position: absolute; inset: 0; }
 .backup > .headline { position: absolute; left: 120px; top: 120px; width: 1300px; font-size: 84px; }

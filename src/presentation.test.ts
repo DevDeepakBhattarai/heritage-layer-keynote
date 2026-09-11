@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { clampLocation, globalBeatIndex, slides, totalBeats } from "./presentation";
 
 describe("presentation model", () => {
-  it("contains ten core slides and three backups", () => {
-    expect(slides.filter((slide) => !slide.backup)).toHaveLength(10);
+  it("contains eleven core slides and three backups", () => {
+    expect(slides.filter((slide) => !slide.backup)).toHaveLength(11);
     expect(slides.filter((slide) => slide.backup)).toHaveLength(3);
   });
 

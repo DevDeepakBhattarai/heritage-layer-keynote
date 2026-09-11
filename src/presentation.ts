@@ -69,6 +69,12 @@ export const slides = [
       "Saarang provides a concrete example of QR heritage storytelling in Nepal. That establishes an existing approach we can learn from. Our pilot must show why visitors and site partners would choose our offering.\n\nWe plan to connect editorial review, offline access, and personal travel planning in one experience. The advantage will depend on the quality of our local relationships, the knowledge we collect, and how reliably we maintain it.\n\nWe'll begin with a focused heritage pilot in Nepal. Our longer-term vision is a trusted information layer that helps people understand physical places wherever they travel.",
   },
   {
+    title: "Closing",
+    beats: 1,
+    script:
+      "Thank you for your time. We're happy to take questions, and the backup slides cover verification, the offline design, and go-to-market in more detail.",
+  },
+  {
     title: "Verification architecture",
     beats: 4,
     backup: true,
