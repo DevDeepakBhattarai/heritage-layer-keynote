@@ -156,6 +156,8 @@ img { display: block; }
   transition: opacity 200ms var(--ease-out), border-color 200ms var(--ease-out), color 200ms var(--ease-out);
 }
 .nav button:not(.help-trigger) { font-size: 20px; line-height: 1; padding-bottom: 3px; }
+/* Presenting: the deck goes fullscreen via F, and the on-screen controls get out of the way. Keys still work. */
+:fullscreen .nav { display: none; }
 .nav button:hover, .nav button:focus-visible { opacity: 1; border-color: var(--line-strong); color: var(--paper); }
 
 .overlay {
