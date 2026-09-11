@@ -54,7 +54,7 @@ export const slides = [
     title: "Business model",
     beats: 4,
     script:
-      "The business model connects discovery with transactions. A visitor learns about a place, finds an experience they want to try, and books through a partner. We earn a commission on eligible completed bookings.\n\nIn this illustrative example, a two-thousand-rupee booking at a ten-percent commission produces two hundred rupees in gross revenue. That is before operating costs, refunds, and other applicable expenses.\n\nThe pilot will test whether booking revenue can support content review and product operations. Commercial relationships will be visible to visitors, and historical content will remain independent of booking incentives.",
+      "The business model has two revenue streams, and both come after a visitor has found the free heritage story useful.\n\nFirst, commissions. A visitor learns about a place, finds an experience they want to try, and books through a partner. We earn a commission on eligible completed bookings.\n\nSecond, a subscription for visitors who want more than the free introduction: unlimited questions about a place, detailed multi-day trip planning, and saved routes across a whole visit. We'll test pricing during the pilot.\n\nIn this illustrative commission example, a two-thousand-rupee booking at a ten-percent commission produces two hundred rupees in gross revenue. That is before operating costs, refunds, and other applicable expenses.\n\nThe pilot will test whether booking and subscription revenue together can support content review and product operations. Commercial relationships will be visible to visitors, and historical content will remain independent of booking incentives.",
   },
   {
     title: "Competition and vision",

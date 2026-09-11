@@ -233,14 +233,16 @@
 .business-backdrop { object-position: 100% 50%; filter: brightness(0.7) saturate(0.9); }
 .business-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(10 9 8 / 96%) 0%, rgb(10 9 8 / 90%) 42%, rgb(10 9 8 / 30%) 75%, rgb(10 9 8 / 20%) 100%); }
 .business-dim { position: absolute; inset: 0; background: rgb(10 9 8 / 70%); }
-.business-copy { position: absolute; left: 120px; top: 120px; width: 980px; display: grid; gap: 56px; }
+.business-copy { position: absolute; left: 120px; top: 120px; width: 1000px; display: grid; gap: 48px; }
 .business-copy .headline { font-size: 80px; }
 .business-free .title { font-size: 50px; width: 880px; }
-.business-earn { display: grid; gap: 24px; }
-.business-earn .lead.muted { font-size: 30px; }
-.business-earn ul { display: grid; gap: 14px; }
-.business-earn li { font-size: 38px; }
-.transaction { position: absolute; left: 1080px; top: 200px; width: 720px; display: grid; gap: 36px; }
+.business-streams { display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; }
+.business-stream { display: grid; gap: 14px; align-content: start; }
+.business-stream .title { font-size: 40px; }
+.business-stream .caption { font-size: 22px; }
+.business-stream ul { display: grid; margin-top: 10px; }
+.business-stream li { padding: 12px 0; border-top: 1px solid var(--line); font-size: 26px; color: var(--paper); }
+.transaction { position: absolute; left: 1140px; top: 200px; width: 720px; display: grid; gap: 36px; }
 .transaction dl { display: grid; gap: 30px; margin: 0; }
 .transaction dt { font-size: 88px; line-height: 1; letter-spacing: -0.035em; font-weight: 620; }
 .transaction dd { margin: 8px 0 0; font-size: 24px; color: var(--paper-3); }

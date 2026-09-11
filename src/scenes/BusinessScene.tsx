@@ -2,7 +2,18 @@ import { motion } from "framer-motion";
 import details from "../assets/heritage-details.webp";
 import { Reveal, arrive, useCountUp } from "../components/motion";
 
-const categories = ["Hotels · Booking.com · Tripadvisor", "Taxi bookings · Pathao · inDrive", "Restaurants & cafés", "Tours & attraction tickets"];
+const streams = [
+  {
+    label: "Commissions",
+    intro: "On eligible bookings for",
+    items: ["Hotels · Booking.com, Tripadvisor", "Taxis · Pathao, inDrive", "Restaurants and cafés", "Tours and attraction tickets"],
+  },
+  {
+    label: "Subscription",
+    intro: "For visitors who want more",
+    items: ["Unlimited questions about a place", "Detailed multi-day trip planning", "Saved routes across a whole visit"],
+  },
+];
 
 export function BusinessScene({ beat }: { beat: number }) {
   const transaction = beat >= 3;
@@ -16,7 +27,7 @@ export function BusinessScene({ beat }: { beat: number }) {
       <motion.div className="business-copy" initial={false} animate={{ opacity: transaction ? 0.3 : 1, x: transaction ? -20 : 0 }} transition={arrive(0, 0.8)}>
         <h1 className="headline">
           <Reveal as="span" when y={0} style={{ display: "block" }}>
-            Revenue from bookings after visitors discover value
+            Two revenue streams after visitors discover value
           </Reveal>
         </h1>
 
@@ -24,15 +35,24 @@ export function BusinessScene({ beat }: { beat: number }) {
           <p className="title">Keep essential heritage stories free to access.</p>
         </Reveal>
 
-        <Reveal when={beat >= 2} className="business-earn" y={20}>
-          <p className="lead muted">Earn commissions on eligible bookings for:</p>
-          <ul>
-            {categories.map((item, index) => (
-              <motion.li key={item} className="lead" initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={arrive(0.25 + index * 0.13, 0.6)}>
-                {item}
-              </motion.li>
-            ))}
-          </ul>
+        <Reveal when={beat >= 2} className="business-streams" y={20}>
+          {streams.map((stream, column) => (
+            <div key={stream.label} className="business-stream">
+              <motion.h2 className="title" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={arrive(0.15 + column * 0.45, 0.6)}>
+                {stream.label}
+              </motion.h2>
+              <motion.p className="caption" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={arrive(0.25 + column * 0.45, 0.6)}>
+                {stream.intro}
+              </motion.p>
+              <ul>
+                {stream.items.map((item, index) => (
+                  <motion.li key={item} className="body" initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }} transition={arrive(0.35 + column * 0.45 + index * 0.12, 0.6)}>
+                    {item}
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </Reveal>
       </motion.div>
 
