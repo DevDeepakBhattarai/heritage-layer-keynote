@@ -1,10 +1,10 @@
 // Visual review: screenshots every beat of the standalone deck and checks that no
 // text element leaves the stage. Usage: node scripts/review.mjs [--slides 1,2] [--width 1920]
-import { spawn } from "node:child_process";
-import { mkdir, rm, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { slides } from "../src/presentation.ts";
+import { launchChrome, sleep } from "./chrome.mjs";
 
 const args = process.argv.slice(2);
 const option = (name, fallback) => {
@@ -20,61 +20,8 @@ const height = Math.round((width * 9) / 16);
 const settle = Number(option("settle", 3200));
 
 const cwd = process.cwd();
-const chrome = "C:/Program Files/Google/Chrome/Application/chrome.exe";
-const port = 9333;
-const profile = path.join(cwd, ".chrome-review");
 const shotDir = path.join(cwd, "visual-review");
-await rm(profile, { recursive: true, force: true }).catch(() => {});
-await mkdir(profile, { recursive: true });
 await mkdir(shotDir, { recursive: true });
-
-const child = spawn(
-  chrome,
-  ["--headless=new", "--hide-scrollbars", "--no-first-run", "--no-default-browser-check", "--allow-file-access-from-files", `--remote-debugging-port=${port}`, `--user-data-dir=${profile}`, `--window-size=${width},${height}`, "about:blank"],
-  { stdio: "ignore", windowsHide: true },
-);
-
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-async function pollJson() {
-  for (let i = 0; i < 80; i++) {
-    try {
-      const list = await fetch(`http://127.0.0.1:${port}/json/list`).then((r) => r.json());
-      const page = list.find((x) => x.type === "page");
-      if (page?.webSocketDebuggerUrl) return page;
-    } catch {}
-    await sleep(100);
-  }
-  throw new Error("Chrome DevTools endpoint did not become ready");
-}
-
-const target = await pollJson();
-const ws = new WebSocket(target.webSocketDebuggerUrl);
-await new Promise((resolve, reject) => {
-  ws.onopen = resolve;
-  ws.onerror = reject;
-});
-let id = 0;
-const pending = new Map();
-ws.onmessage = (event) => {
-  const msg = JSON.parse(event.data);
-  if (!msg.id || !pending.has(msg.id)) return;
-  const { resolve, reject } = pending.get(msg.id);
-  pending.delete(msg.id);
-  if (msg.error) reject(new Error(msg.error.message));
-  else resolve(msg.result);
-};
-function call(method, params = {}) {
-  const msgId = ++id;
-  return new Promise((resolve, reject) => {
-    pending.set(msgId, { resolve, reject });
-    ws.send(JSON.stringify({ id: msgId, method, params }));
-  });
-}
-async function evaluate(expression) {
-  const r = await call("Runtime.evaluate", { expression, awaitPromise: true, returnByValue: true, userGesture: true });
-  if (r.exceptionDetails) throw new Error(r.exceptionDetails.text || "Runtime evaluation failed");
-  return r.result?.value;
-}
 
 const artifact = pathToFileURL(path.join(cwd, "dist", "index.html")).href;
 
@@ -114,24 +61,19 @@ const overflowProbe = `(() => {
   return issues;
 })()`;
 
+const browser = await launchChrome({ width, height, profile: path.join(cwd, ".chrome-review") });
 const report = [];
 try {
-  await call("Page.enable");
-  await call("Runtime.enable");
-  await call("Emulation.setDeviceMetricsOverride", { width, height, deviceScaleFactor: 1, mobile: false });
+  await browser.call("Emulation.setDeviceMetricsOverride", { width, height, deviceScaleFactor: 1, mobile: false });
 
   for (let s = 0; s < slides.length; s++) {
     if (onlySlides.length && !onlySlides.includes(s + 1)) continue;
     for (let b = 0; b < slides[s].beats; b++) {
-      await call("Page.navigate", { url: `${artifact}?slide=${s + 1}&beat=${b + 1}&review=1` });
-      for (let i = 0; i < 100; i++) {
-        if (await evaluate(`document.readyState === 'complete' && !!document.querySelector('.scene')`)) break;
-        await sleep(50);
-      }
+      await browser.open(`${artifact}?slide=${s + 1}&beat=${b + 1}&review=1`);
       await sleep(settle);
-      const issues = await evaluate(overflowProbe);
+      const issues = await browser.evaluate(overflowProbe);
       const name = `s${String(s + 1).padStart(2, "0")}-b${b + 1}-${width}.png`;
-      const shot = await call("Page.captureScreenshot", { format: "png" });
+      const shot = await browser.call("Page.captureScreenshot", { format: "png" });
       await writeFile(path.join(shotDir, name), Buffer.from(shot.data, "base64"));
       report.push({ slide: s + 1, beat: b + 1, issues });
       console.log(`${issues.length ? "WARN" : "ok  "} ${name}${issues.length ? " " + JSON.stringify(issues) : ""}`);
@@ -139,8 +81,5 @@ try {
   }
   await writeFile(path.join(cwd, "visual-review", `report-${width}.json`), JSON.stringify(report, null, 2));
 } finally {
-  ws.close();
-  child.kill();
-  await sleep(300);
-  await rm(profile, { recursive: true, force: true }).catch(() => {});
+  await browser.close();
 }

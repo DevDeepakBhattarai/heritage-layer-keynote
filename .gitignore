@@ -1,5 +1,6 @@
 node_modules/
 .chrome-review/
+.chrome-pdf/
 .chrome-motion/
 visual-review/
 dist/
